@@ -1,17 +1,205 @@
 :root{
-
-/*Colors*/
-
-    /*Primary*/
-    -Linear-Gradient: hsl(236, 72%, 79%) to hsl(237, 63%, 64%);
-
-    /*Neutral*/
-    -Very-Light-Grayish-Blue: hsl(240, 78%, 98%);
-    -Light-Grayish-Blue: hsl(234, 14%, 74%);
-    -Grayish-Blue: hsl(233, 13%, 49%);
-    -Dark-Grayish-Blue: hsl(232, 13%, 33%);
-
+    --Very-Light-Grayish: hsl(240, 78%, 98%);
+    --Light-Grayish-Blue:  hsl(234, 14%, 74%);
+    --Grayish-Blue: hsl(233, 13%, 49%);
+    --Dark-Grayish-Blue: hsl(232, 13%, 33%);
 }
+
 body{
-    background-color: var(-Light-Grayish-Blue);
+    background-color: var(--Very-Light-Grayish);
+    font-family: 'Montserrat', sans-serif;
+    overflow-x: hidden;
+    font-weight: 700;
+}
+p{
+    color: var(--Grayish-Blue);
+}
+.contenedor__cards p, .contenedor__cards h2, .gradient-boton, .pricing{
+    text-align: center;
+}
+.bg-bottom, .bg-top{
+    position: absolute;
+}
+.contenedor__boton, .contenedor__cards, .beneficios, .gradient-boton{
+    margin: 0 auto;
+}
+.bg-top{
+    top: 0;
+    right: 0;
+    width: 55%;
+}
+.bg-bottom{
+    bottom: 0;
+    left: 0;
+    width: 40%;
+    visibility: hidden;
+}
+.bg-bottom, .bg-top{
+        z-index: -1;
+}
+@media (min-width: 1440px) {
+     .bg-bottom{
+        width: unset;
+        visibility: unset;
+     }
+     .bg-top{
+        width: unset;
+     }
+}
+.pricing{
+    font-size: 1.5rem;
+    padding-top: 1.5rem;
+    text-transform: capitalize;
+}
+@media (min-width: 1440px) {
+     .pricing{
+        font-size: 2rem;
+     }
+}
+.contenedor__boton{
+    width: 60%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 60px;
+    margin: 0 auto;
+    gap: 1rem;
+}
+.opcion{
+    color: var(--Light-Grayish-Blue);
+}
+.lbl-switch{
+    padding: .65rem 2.4rem;
+    background-image: linear-gradient(to right, hsl(236, 72%, 79%), hsl(237, 63%, 64%));
+    border-radius: 100px;
+    position: relative;
+    cursor: pointer;
+}
+#btn-switch:checked~ .lbl-switch{
+    background-image: linear-gradient(to left, hsl(236, 72%, 79%), hsl(237, 63%, 64%));
+}
+.lbl-switch::after{
+    position: absolute;
+    content: '';
+    padding: 1rem;
+    border-radius: 100px;
+    top: 4px;
+    left: 5px;
+    transition: .3s;
+    background: #fff;
+    z-index: 2;
+}
+#btn-switch:checked~ .lbl-switch::after{
+    left: 40px;
+}
+#btn-switch{
+    display: none;
+}
+@media (min-width: 1440px) {
+     .contenedor__boton{
+        width: 18%;
+     }
+}
+.contenedor__cards{
+    width: 90%;
+    display: grid;
+    grid-template-rows: repeat(3,1fr);
+    gap: 2rem;
+    padding: 2rem 0;
+}
+@media (min-width: 1440px) {
+     .contenedor__cards{
+        grid-template-rows: unset;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 0;
+        width: 80%;
+        padding-top: 3.2rem;
+    }
+}
+.card-white{
+    background-color: #fff;
+    padding-bottom: 2rem;
+    border-radius: 15px;
+}
+@media (min-width: 1440px) {
+     .card-white{
+        height: 90%;
+     }
+     .card-blue{
+        height: 100%;
+     }
+}
+
+.beneficios{
+    display: grid;
+    width: 90%;
+    grid-template-rows: repeat(3,1fr);
+    padding: .7rem 0;
+}
+.precio{
+    font-size: 3.5rem;
+    margin: 0;
+    color: var(--Dark-Grayish-Blue);
+}
+.precio span{
+    font-size: 2rem;
+}
+.beneficios p{
+    border-bottom: 1px solid var(--Light-Grayish-Blue);
+    border-top: 1px solid var(--Light-Grayish-Blue);
+    padding: 15px 0;
+}
+.plan{
+    margin: 0;
+    padding: 1.7rem 0;
+}
+.gradient-boton{
+    border: none;
+    width: 90%;
+    padding: 1rem 0;
+    border-radius: 10px;
+    background-image: linear-gradient(to right, hsl(236, 72%, 79%), hsl(237, 63%, 64%));
+    color: white;
+    text-transform: uppercase;
+    font-size: 14px;
+}
+
+
+.card-blue{
+    background-image: linear-gradient(to bottom, hsl(236, 72%, 79%), hsl(237, 63%, 64%));
+}
+@media (min-width: 1440px) {
+     .contenedor__cards{
+        align-items: center;
+     }
+     .card-blue .plan{
+        padding-top: 3.4rem;
+     }
+     .contenedor__cards{
+        padding-bottom: 5rem;
+     }
+}
+.card-blue .gradient-boton{
+    background-image: unset;
+    background-color: #fff;
+}
+.card-blue p, .card-blue h2{
+    color: #fff;
+}
+
+.card-blue .gradient-boton{
+    color: hsl(237, 63%, 64%);
+}
+.gradient-boton:hover{
+    background-image: unset;
+    background-color: #fff;
+    border: 1px solid hsl(236, 72%, 79%);
+    cursor: pointer;
+    color: hsl(236, 72%, 79%);
+    transition: all .3s ease-out;
+}
+.card-blue .gradient-boton:hover{
+    border: 1px solid #fff;
+    background-color: hsl(237, 63%, 64%);
+    color: #fff;
 }
