@@ -134,10 +134,10 @@ p{
     display: grid;
     width: 90%;
     grid-template-rows: repeat(3,1fr);
-    padding: .7rem 0;
+    padding: 2rem 0;
 }
 .precio{
-    font-size: 3.5rem;
+    font-size: 4rem;
     margin: 0;
     color: var(--Dark-Grayish-Blue);
 }
@@ -147,7 +147,8 @@ p{
 .beneficios p{
     border-bottom: 1px solid var(--Light-Grayish-Blue);
     border-top: 1px solid var(--Light-Grayish-Blue);
-    padding: 15px 0;
+    margin: 0;
+    padding: 20px 0;
 }
 .plan{
     margin: 0;
@@ -163,7 +164,6 @@ p{
     text-transform: uppercase;
     font-size: 14px;
 }
-
 
 .card-blue{
     background-image: linear-gradient(to bottom, hsl(236, 72%, 79%), hsl(237, 63%, 64%));
